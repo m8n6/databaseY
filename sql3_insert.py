@@ -12,15 +12,19 @@ connect = pymysql.Connect(
 # 获取游标
 cursor = connect.cursor()
 # 插入数据
-sql = "INSERT INTO student(Sno,Sname,Ssex,Sage,Sdept) VALUES (%s, %s, %s, %s, %s)"
+sql = "INSERT INTO SC (Sno, Cno, Grade) VALUES (%s, %s, %s)"
 data = [
-    ('10001', 'Jack', '男', 21, 'CS'),
-    ('10002', 'Rose', '女', 20, 'SE'),
-    ('10003', 'Michael', '男', 21, 'IS'),
-    ('10004', 'Hepburn', '女', 19, 'CS'),
-    ('10005', 'Lisa', '女', 20, 'SE'),
-
-]
+            ('10002', '00003', 86),
+            ('10001', '00002', 90),
+            ('10002', '00004', 70),
+            ('10003', '00001', 85),
+            ('10004', '00002', 77),
+            ('10005', '00003', 88),
+            ('10001', '00005', 91),
+            ('10002', '00002', 79),
+            ('10003', '00002', 83),
+            ('10004', '00003', 67)
+        ]
 
 for item in data:
     cursor.execute(sql, item)

@@ -10,18 +10,17 @@ connect = pymysql.Connect(
     charset='utf8'  #编码格式
 )
 # 获取游标
-cursor = connect.cursor()
+#cursor = connect.cursor()
 # 如果表存在，则先删除
-cursor.execute("DROP TABLE IF EXISTS student")
+#cursor.execute("DROP TABLE IF EXISTS student")
 # 设定SQL语句
 sql = """
-CREATE TABLE student(
-    Sno char(5),
-    Sname char(10),
-    Ssex char(2),
-    Sage int,
-    Sdept char(2)
-    );
+ CREATE TABLE SC (
+            Sno VARCHAR(10),
+            Cno VARCHAR(10),
+            Grade INT,
+            PRIMARY KEY (Sno, Cno)
+        );
 """
 # 执行SQL语句
 cursor.execute(sql)
